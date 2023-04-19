@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Lab4_Template.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body   
+        {
+            background-color:white;
+            font-size: .80em;
+            font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            color: black;
+        }
+        .page
+        {
+            width: 70%;
+            min-width: 800px;
+            margin: 0px auto;
+            border: 1px solid #496077;
+            background-color: #FBF9EF;
+        }
+        .footer {
+            width: 70%;
+            min-width:800px;
+            margin: 0px auto;
+            border: 1px solid #496077;
+            background-color: lightgray;
+            color: blue;
+            text-align: center;
+            font-size:1.5em; 
+        }
+        .header {
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            background-color:dodgerblue;
+            width: 100%;
+        }
+        .header h1 {
+              font-weight: 700;
+              color:white;
+              margin: 0px;
+              padding: 0px 0px 0px 20px;
+              border: none;
+              line-height: 2em;
+              font-size: 2em;
+        }
+        .main
+        {
+            padding: 0px 12px;
+            margin: 12px 8px 8px 8px;
+            min-height: 420px;
+        }
+                
+        div.hideSkiplink {
+              background-color: lightgray;
+              width: 100%;
+              padding: 10px 0px;
+              font-size:1.2em;
+              display:block;
+        }
+
+        div.loginDisplay {
+              font-size: 1.2em;
+              display: block;
+              text-align: right;
+              padding: 10px;
+        }
+
+        a:link, a:visited {
+              color: blue;
+              padding: 1px 4px;
+        }
+
+        a:hover {
+              color: red;
+              text-decoration: none;
+        }
+
+        a:active {
+              color: red;
+        }
+        .title {
+              display: block;
+              float: left;
+              text-align: left;
+              width: auto;
+        }
+        
+        .menu
+        {
+                display:block;
+                padding: 8px;
+                color:white;
+        }
+
+    </style>
+ 
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                     &nbsp;
+                     &nbsp;
+                     &nbsp;
+                     <asp:Image ID="Image1" 
+                         runat="server" ImageUrl="~/Images/logo.png" ImageAlign="Middle" />
+                     &nbsp; ONLINE AUCTION SYSTEM
+                     &nbsp;
+                     &nbsp;
+                </h1>
+            </div>
+            <%--
+            <div class="clear loginDisplay">
+               
+                <% if ((String) Session["user"] == "") {%>
+                <a href="LoginGUI.aspx" style="color:white;">Login</a>
+                <%} else { %>
+                <a href ="LogoutGUI.aspx" style="color:white;">Logout<%=" (" + (String) Session["user"] + ") "%></a>
+                <%} %>
+                
+            </div>
+            --%>
+            </br>
+            </br>
+            </br>
+            </br>
+            <div class="clear hideSkiplink">
+                <a href="BidGUI.aspx">Bid</a>
+                <a href="ItemGUI.aspx">Place Item</a>
+                <a href="AuctionStatusGUI.aspx">Auction status</a>
+                <%-- 
+                <a href="CartGUI.aspx">Cart<%="(" + (int)Session["cartCount"] + ")"%></a>
+                <% if ((int)Session["role"] == 1) {%>
+                    <a href="ReportGUI.aspx">Report</a>
+                    <a href="AlbumGUI.aspx">Album</a> 
+                <%}%>
+                <a href="About.aspx">About</a>
+                --%>                
+            </div>
+        </div> <%-- Header --%>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+    </div> <%-- Page --%>
+    <div class="footer">
+        Author: Nguyễn Thúy Hường
+        <br />
+        Email: huongnt7@fpt.edu.vn
+    </div>
+  </form>
+</body>
+</html>
